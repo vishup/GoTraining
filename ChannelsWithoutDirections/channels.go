@@ -27,11 +27,12 @@ func ponger(c chan string) {
 }
 
 func main() {
+	//runtime.GOMAXPROCS(2)
 	c := make(chan string)
 
 	go pinger(c)
 	go printer(c)
-	//go ponger(c)
+	go ponger(c)
 
 	var input string
 	fmt.Scanln(&input)
